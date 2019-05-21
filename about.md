@@ -2,14 +2,12 @@
 layout: page
 title: About
 permalink: /about/
+image: /files/covers/blog.jpg
+sitemap: yes
+tags: [about]
 ---
 
-Some information about you!
+[kakao](http://www.kakaocorp.com) 기술블로그 입니다.
 
-### More Information
+Powered by [GitHub Pages](https://pages.github.com) and [Jekyll](https://jekyllrb.com).
 
-A place to include any other types of information that you'd like to include about yourself.
-
-### Contact me
-
-[email@domain.com](mailto:email@domain.com)
