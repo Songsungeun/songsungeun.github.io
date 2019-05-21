@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "정대리를 보시오"
 date:   2019-05-21 15:07:05
 author: 송성은
 categories: test
