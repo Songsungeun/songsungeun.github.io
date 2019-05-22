@@ -1,69 +1,55 @@
 ---
 layout: default
 ---
-<div id="navbar" class="container">
-    <h5><a id="link-back" href="/">Back to Posts</a></h5>
-    {% include share.html page=page %}
-</div>
 
-<div id="cover" class="container"
-     {% if page.image %}style="background-image: url({{ page.image }});"{% endif %}>
-    <div>
-        <h1>{{ page.title }}</h1>
-        <p>
-            {% for tag in page.tags %}
-                <a href="{{ site.baseurl }}/tags/{{ tag }}">{{ tag }}</a>
-                {% unless forloop.last %},{% endunless %}
-            {% endfor %}
-        </p>
-        {% include cover_link.html cover=page.cover %}
-    </div>
-</div>
-
-<div id="content" class="container post" role="main">
-    <div id="post-content">{{ content }}</div>
-    <div id="post-footer">
-        {% assign author = site.authors | where: 'name', page.author | first %}
-        <a id="post-author" href="{{ author.url }}">
-            <div id="author-image" style="background-image:url({{ author.image | default: '' }});">
-                <span class="sr-only">{{ author.name }}'s profile image</span>
-            </div>
-            <p id="author-name">{{ author.name }}</p>
-        </a>
-        <p id="post-date">{{ page.date | date: '%Y-%m-%d %H:%M' }}</p>
-        <a id="post-more" href="{{ author.url }}">
-            <span>Read more posts by this author</span>
-        </a>
-    </div>
-</div>
-
-<div class="container" style="margin-top:25px; padding:0px">
-    <a href="https://careers.kakao.com/jobs/P-11149"><img src="https://careers.kakao.com/jobs/image/37" style="width:100%;"></a>
-</div>
-
-<div id="post-links" class="container">
-    {% assign prev = page.previous %}
-    {% if prev %}
-        <div id="post-prev"
-             {% if prev.image %}style="background-image: url({{ prev.image }});"{% endif %}>
-            <div>
-                <h3><a href="{{ prev.url }}">{{ prev.title }}</a></h3>
-                <p>YOU MIGHT ENJOY</p>
-            </div>
-        </div>
+<!-- Page Header -->
+{% if page.background %}
+<header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
+  {% else %}
+  <header class="masthead">
     {% endif %}
-    {% assign next = page.next %}
-    {% if next %}
-        <div id="post-next"
-             {% if next.image %}style="background-image: url({{ next.image }});"{% endif %}>
-            <div>
-                <h3><a href="{{ next.url }}">{{ next.title }}</a></h3>
-                <p>NEXT POST</p>
-            </div>
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>{{ page.title }}</h1>
+            {% if page.subtitle %}
+            <h2 class="subheading">{{ page.subtitle }}</h2>
+            {% endif %}
+            <span class="meta">Posted by
+              <a href="#">{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</a>
+              on {{ page.date | date: '%B %d, %Y' }} &middot; {% include read_time.html
+              content=page.content %}</span>
+          </div>
         </div>
-    {% endif %}
-</div>
+      </div>
+    </div>
+  </header>
 
-<div id="lightbox">
-    <div id="lightbox-image"></div>
-</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+        {{ content }}
+
+        <hr>
+
+        <div class="clearfix">
+
+          {% if page.previous.url %}
+          <a class="btn btn-primary float-left" href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}"
+            data-toggle="tooltip" data-placement="top" title="{{ page.previous.title }}">&larr; Previous<span class="d-none d-md-inline">
+              Post</span></a>
+          {% endif %}
+          {% if page.next.url %}
+          <a class="btn btn-primary float-right" href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}"
+            data-toggle="tooltip" data-placement="top" title="{{ page.next.title }}">Next<span class="d-none d-md-inline">
+              Post</span> &rarr;</a>
+          {% endif %}
+
+        </div>
+
+      </div>
+    </div>
+  </div>

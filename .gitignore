@@ -1,6 +1,5 @@
-.DS_Store
 _site
 .sass-cache
-.jekyll-metadata
-.idea
-.ruby-version
+node_modules
+Gemfile.lock
+*.gem

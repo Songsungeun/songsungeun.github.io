@@ -1,136 +1,143 @@
-tech.kakao.com
-==============
+# [Start Bootstrap - Clean Blog Jekyll](https://startbootstrap.com/template-overviews/clean-blog-jekyll/) - Official Jekyll Version
 
-> 주의: [GitHub Pages]와 [Jekyll]에 대해서 충분히 숙지할 것.
-> 주의: [Collaborating on projects using issues and pull requests](https://help.github.com/categories/collaborating-on-projects-using-issues-and-pull-requests/)을 정독.
+[Clean Blog Jekyll](http://startbootstrap.com/template-overviews/clean-blog-jekyll/) is a stylish, responsive blog theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This theme features a blog homepage, about page, contact page, and an example post page along with a working contact form powered by [Formspree](https://formspree.io/).
 
+This repository holds the official Jekyll version of the Clean Blog theme on Start Bootstrap!
 
-### 설치
+## Preview
 
-<https://github.com/kakao/kakao.github.io> 에 push 권한이 있다면:
+[![Clean Blog (Jekyll) Preview](https://startbootstrap.com/assets/img/screenshots/themes/clean-blog-jekyll.png)](http://blackrockdigital.github.io/startbootstrap-clean-blog-jekyll/)
 
-1. git fetch or pull or clone
-2. [Jekyll] 설치
+**[View Live Preview](http://blackrockdigital.github.io/startbootstrap-clean-blog-jekyll/)**
 
-```console
-$ git clone git@github.com:kakao/kakao.github.io.git
-$ cd kakao.github.io
-$ bundle install
+## Installation & Setup
+
+### Using RubyGems:
+
+When installing the theme using RubyGems, demo images, posts, and pages are not included. Follow the instructions below for complete setup.
+
+1. (Optional) Create a new Jekyll site: `jekyll new my-site`
+2. Replace the current theme in your `Gemfile` with `gem "jekyll-theme-clean-blog"`.
+3. Install the theme: `bundle install`
+4. Replace the current theme in your `_config.yml` file with `theme: jekyll-theme-clean-blog`.
+5. Build your site: `bundle exec jekyll serve`
+
+Assuming there are no errors and the site is building properly, follow these steps next:
+
+1. Create the following pages if they do not exist already (or change the extension of exisitig markdown files from `.md` to `.html`):
+   - `index.html` - set to `layout: home`
+   - `about.html` - set to `layout: page`
+   - `contact.html` - set to `layout: page`
+   - `posts/index.html` - set to `layout: page` (you will also need to create a `posts` directory)
+2. Configure the `index.html` front matter. Example:
 ```
-
-<https://github.com/kakao/kakao.github.io> 에 push 권한이 없다면:
-
-1. <https://github.com/kakao/kakao.github.io> 에서 `Fork` 버튼 클릭하고,
-2. 포크 저장소 계정(maybe 개인 계정) 선택
-3. git fetch or pull or clone
-4. 포크 설정 [Configuring a remote for a fork](https://help.github.com/articles/configuring-a-remote-for-a-fork/)
-5. 포크 동기화 [Syncing a fork](https://help.github.com/articles/syncing-a-fork/)
-6. [Jekyll] 설치
-
-```console
-$ git clone git@github.com:YOUR_GITHUB_ACCOUNT/kakao.github.io.git
-$ cd kakao.github.io
-$ git remote add upstream git@github.com:kakao/kakao.github.io.git
-$ git fetch upstream
-$ git checkout master
-$ git merge upstream/master
-$ bundle install
-```
-
-### 실행(로컬)
-
-```
-$ bundle exec jekyll serve
-$ open http://localhost:4000
-```
-
-### 배포(발행)
-
-<https://github.com/kakao/kakao.github.io> 에 push 권한이 있다면:
-
-```
-$ git commit -m '...'
-$ git push origin master
-````
-
-<https://github.com/kakao/kakao.github.io> 에 push 권한이 없다면:
-
-1. Fork 동기화 [Syncing a fork](https://help.github.com/articles/syncing-a-fork/)
-2. Pull Request 보내기 [Creating a pull request](https://help.github.com/articles/creating-a-pull-request/)
-
-### 새 글 작성
-
-1. `_drafts` 디렉토리에 `적당한이름.md` 이름으로 파일을 만들고
-2. 포스트를 마크다운으로 작성
-  - [gfm] 문법, [kramdown] 파서, [rouge] 문법강조기 사용
-3. 확인 
-```
-$ bundle exec jekyll serve --drafts
-```
-
-### 글 쓰기
-
-1. `_posts` 디렉토리에 `yyyy-mm-dd-slug.md` 파일로 복사(or 이동).
- - slug: 해당 포스트의 고유 키로 url의 일부로 사용. 왠만하면 특수문자없이 영문자,숫자,-(하이픈),.(점)...만 사용.
- - yyyy,mm,dd: 발행 년,월,일.
- - 참고: 최종적으로 포스트의 url(permalink)는 http://tech.kakao.com/yyyy/mm/dd/slug/
-2. 파일 상단에 [front matter] 작성
- - layout: post # 레이아웃(필수). `page` 레이아웃을 사용하면 목록에 보이지 않는 글을 쓸 수 있음.
- - title: '제목' # 제목(필수)
- - author: `lastname.firstname` # 필자(필수). 왠만하면 회사 아이디(예: iolo.fitzowen) 사용
- - tags: `[tag1,tag2,tag3,...]` # 태그 목록(선택). 왠만하면 특수문자없이 영소문자,숫자,-(하이픈),.(점)...만 사용.
- - image: http://... # 커버이미지 url(선택)
- - date: `YYYY-MM-DD HH:MM:SS` # 발행일(필수)
-3. 처음 글을 쓰는 필자이라면 **글쓴이 등록**(필수)
-4. 유력한(?) 태그가 새로 등장했다면 **태그 등록**(선택)
-
-### 필자 등록
-
-1. `_authors` 디렉토리에 `lastname.firstname.md` 이름으로 필자 정보 파일 추가
- - 참고: 최종적으로 사용자 포스트 목록 페이지의 url은 http://tech.kakao.com/authors/lastname.firstname/
-2. 파일 상단에 [front matter] 작성
- - layout: author # 레이아웃(필수)
- - name: `lastname.firstname` # post의 author와 매칭(필수). 왠만하면 회사 아이디(예: iolo.fitzowen) 사용. 왠만하면 특수문자없이 영소문자,숫자,-(하이픈),.(점)...만 사용.
- - title: ... # 왠만하면 한글이름 사용( 필수)
- - image: http://... # 프로필 이미지(필수)
- - cover: http://... # 작성자 커버 이미지(선택)
-3. 내용은 필요없음
-
-### 태그 등록
-
-1. `_tags` 디렉토리에 `tag-name.md` 이름으로 필자 정보 파일 추가
- - 참고: 최종적으로 사용자 포스트 목록 페이지의 url은 http://tech.kakao.com/tags/tag-name/
-2. 파일 상단에 [front matter] 작성
- - layout: tag # 레이아웃(필수)
- - name: `tag-name` # post의 tags 배열의 항목과 매칭(필수). 왠만하면 특수문자없이 영소문자,숫자,-(하이픈),.(점)...만 사용.
- - title: ... # 좀 더 길고 구체적인 설명(필수)
- - image: http://... # 태그 이미지(선택)
-3. 내용은 필요없음
-
 ---
+layout: home
+background: '/PATH_TO_IMAGE'
+---
+```
+3. Configure the `about.html`, `contact.html`, and `posts/index.html` front matter. Example:
+```
+---
+layout: page
+title: Page Title
+description: This is the page description.
+background: '/PATH_TO_IMAGE'
+---
+```
+4. For each post in the `_posts` directory, update the front matter. Example:
+```
+---
+layout: post
+title: "Post Title"
+subtitle: "This is the post subtitle."
+date: YYYY-MM-DD HH:MM:SS
+background: '/PATH_TO_IMAGE'
+---
+```
 
-문의: <opensource@kakaocorp.com>
+For reference, look at the [demo repository](https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll) to see how the files are set up.
 
-May the **SOURCE** be with you...
+5. Add the form to the `contact.html` page. Add the following code to your `contact.html` page:
+```
+<form name="sentMessage" id="contactForm" novalidate>
+  <div class="control-group">
+    <div class="form-group floating-label-form-group controls">
+      <label>Name</label>
+      <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
+      <p class="help-block text-danger"></p>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="form-group floating-label-form-group controls">
+      <label>Email Address</label>
+      <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
+      <p class="help-block text-danger"></p>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
+      <label>Phone Number</label>
+      <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
+      <p class="help-block text-danger"></p>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="form-group floating-label-form-group controls">
+      <label>Message</label>
+      <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
+      <p class="help-block text-danger"></p>
+    </div>
+  </div>
+  <br>
+  <div id="success"></div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
+  </div>
+</form>
+```
 
-[GitHub Pages]: https://pages.github.com
-[Jekyll]: https://jekyllrb.com
-[front matter]: https://jekyllrb.com/docs/frontmatter/
-[gfm]: https://guides.github.com/features/mastering-markdown/
-[kramdown]: http://kramdown.gettalong.org
-[rouge]: http://rouge.jneen.net
+Make sure you have the `email` setting in your `_config.yml` file set to a working email address! Once this is set, fill out the form and then check your email, verify the email address using the link sent to you by Formspree, and then the form will be working!
 
+6. Build your site: `bundle exec jekyll serve`
 
-## License
+### Using Core Files
 
-This software is licensed under the [Apache 2 license](LICENSE.txt), quoted below.
+When using the core files, the demo images, posts, and pages are all included with the download. After following the instructions below, you can then go and change the content of the pages and posts.
 
-Copyright 2017 Kakao Corp. <http://www.kakaocorp.com>
+1. [Download](https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/archive/master.zip) or Clone the repository.
+2. Update the following configuration settings in your `_config.yml` file:
+   - `baseurl`
+   - `url`
+   - `title`
+   - `email` (after setting this setting to a working email address, fill out the form on the contact page and send it - then check your email and verify the address and the form will send you messages when used)
+   - `description`
+   - `author`
+   - `twitter_username` (Optional)
+   - `facebook_username` (Optional)
+   - `github_username` (Optional)
+   - `linkedin_username` (Optional)
+3. Build your site: `bundle exec jekyll serve`
 
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use this project except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
+## Bugs and Issues
 
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+Have a bug or an issue with this template? [Open a new issue](https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/issues) here on GitHub!
 
-### caution
-Kakao fonts(/assets/fonts/) and image(/assets/image/) are only avaiable for Kakao brands.
-> 카카오 폰트(/assets/fonts/)와 이미지(/assets/image/)는 카카오 브랜드용으로 다른 용도로는 이용할 수 없습니다.
+## About
+
+Start Bootstrap is an open source library of free Bootstrap templates and themes. All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
+
+* https://startbootstrap.com
+* https://twitter.com/SBootstrap
+
+Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
+
+* http://davidmiller.io
+* https://twitter.com/davidmillerskt
+* https://github.com/davidtmiller
+
+Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
+
+## Copyright and License
+
+Copyright 2013-2019 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/blob/gh-pages/LICENSE) license.

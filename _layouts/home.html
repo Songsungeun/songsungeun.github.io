@@ -1,32 +1,65 @@
 ---
 layout: default
 ---
-<div id="cover" class="container-fluid"
-     {% if site.image %}style="background-image:url({{ site.image }});"{% endif %}>
-    {% if paginator.page == 1 %}
-        <!--[if (gt IE 9)|!(IE)]><!-->
-        <video loop muted preload="metadata" crossorigin="anonymous">
-            <source src="{{ site.asset_url }}/images/blog_cover.webm" type="video/webm"/>
-            <source src="{{ site.asset_url }}/images/blog_cover.ogv" type="video/ogg"/>
-            <source src="{{ site.asset_url }}/images/blog_cover.mp4" type="video/mp4"/>
-        </video>
-        <!--<![endif]-->
+
+<!-- Page Header -->
+{% if page.background %}
+<header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
+  {% else %}
+  <header class="masthead">
     {% endif %}
-    <div>
-        <h1>{{ site.title }}</h1>
-        <p>{{ site.description | newline_to_br }}</p>
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>{{ site.title }}</h1>
+            {% if site.description %}
+            <span class="subheading">{{ site.description }}</span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </header>
 
-<div class="container" style="margin-top:25px; padding:0px">
-    <a href="https://careers.kakao.com/jobs/P-11149"><img src="https://careers.kakao.com/jobs/image/37" style="width:100%;"></a>
-</div>
-<div id="navbar" class="container">
-    <h5>Featured Posts</h5>
-</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
 
-<div id="content" class="container">
-    <div id="home-content" role="main">
         {{ content }}
+
+        <!-- Home Post List -->
+        {% for post in site.posts limit : 5 %}
+
+        <article class="post-preview">
+          <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+            <h2 class="post-title">{{ post.title }}</h2>
+            {% if post.subtitle %}
+            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+            {% else %}
+            <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
+            {% endif %}
+          </a>
+          <p class="post-meta">Posted by
+            {% if post.author %}
+            {{ post.author }}
+            {% else %}
+            {{ site.author }}
+            {% endif %}
+            on
+            {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %}</p>
+        </article>
+
+        <hr>
+
+        {% endfor %}
+
+        <!-- Pager -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="{{"/posts" | relative_url }}">View All Posts &rarr;</a>
+        </div>
+
+      </div>
     </div>
-</div>
+  </div>
