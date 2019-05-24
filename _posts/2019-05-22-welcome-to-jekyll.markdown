@@ -18,7 +18,7 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
 
-{% highlight html %}
+{% highlight javascript %}
 <html>
   <div class="sse">sipal</div>
 </html>
