@@ -19,3 +19,6 @@ paginate_path:     "/posts/page:num/"
 plugins:
   - jekyll-feed
   - jekyll-paginate
+
+# comment
+disqus-identifier: songsungeun-github-io

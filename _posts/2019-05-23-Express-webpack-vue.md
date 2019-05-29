@@ -4,6 +4,7 @@ title:  "Express-webpack App 개발 및 운영 빌드"
 date:   2019-05-23 10:19:42 +0900
 categories: express webpack vue
 background: '/img/posts/vue-express.png'
+comments : true
 ---
 Express App을 Webpack이용하여 Dev와 Prod 빌드를 해보자.
   
@@ -626,6 +627,11 @@ app.listen(PORT, () => {
 원본인 [Binyamin Midium][binyamin-medium]에는 hot-reloading, lint설정과 test부분까지 진행되고 있다.  
 해당 정보는 [Binyamin Midium][binyamin-medium]에서 확인하기 바란다.
 
+{% if page.comments %}
+<div id="post-disqus" class="container">
+{% include disqus.html %}
+</div>
+{% endif %}
 
 [binyamin-medium]: https://medium.com/@binyamin/creating-a-node-express-webpack-app-with-dev-and-prod-builds-a4962ce51334
 
